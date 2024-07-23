@@ -4,7 +4,7 @@ const csvToJson = (filePath) => {
   let data = fs.readFileSync(filePath, 'utf8', (err) => {
     if (err) {
       throw new Error('Cannot load the database');
-    }
+    };
   }).trim().toString().split('\n');
   
   let header = data[0].split(',');
@@ -14,9 +14,9 @@ const csvToJson = (filePath) => {
     const object = {};
     for (let j = 0; j < header.length; j++) {
       object[header[j].trim()] = body[j].trim();
-    }
+    };
     dataObject.push(object);
-  }
+  };
   return dataObject;
 };
 
@@ -28,8 +28,8 @@ const countStudents = (filePath) => {
   for (let i = 0; i < data.length; i++) {
     if (!fields.includes(data[i]['field'])) {
       fields.push(data[i]['field']);
-    }
-  }
+    };
+  };
   
   for (let allFields = 0; allFields < fields.length; allFields++) {
     let students = 0;
@@ -39,11 +39,10 @@ const countStudents = (filePath) => {
         students++;
         firstnames.push(data[j]['firstname']);
         
-      }
-    }
-    process.stdout.write(`Number of students in ${fields[allFields]}: ${students}. `);
-    process.stdout.write(`List: ${firstnames.join(", ")}\n`);
-  }
+      };
+    };
+    console.log(`Number of students in ${fields[allFields]}: ${students}. List: ${firstnames.join(", ")}`);
+  };
 };
 
 module.exports = countStudents;
