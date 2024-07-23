@@ -41,8 +41,7 @@ const countStudents = (filePath) => {
         
       }
     }
-    console.log(`Number of students in ${fields[allFields]}: ${students}. \
-List: ${firstnames.join(", ")}`);
+    console.log(`Number of students in ${fields[allFields]}: ${students}. List: ${firstnames.join(", ")}`);
   }
 };
 
